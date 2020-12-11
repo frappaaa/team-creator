@@ -18,8 +18,10 @@ button.addEventListener('click', (e)=>{
         singleMember.textContent = input.value
         const deleteButton = document.createElement('div')
         deleteButton.textContent = 'delete'
+        deleteButton.className = 'delete'
         const editButton = document.createElement('div')
         editButton.textContent = 'edit'
+        editButton.className = 'edit'
         singleMember.appendChild(deleteButton)
         singleMember.appendChild(editButton)
         members.push(input.value)
