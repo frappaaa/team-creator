@@ -16,10 +16,10 @@ button.addEventListener('click', (e)=>{
         let singleMember = document.createElement('p')
         singleMember.className = 'member-single'
         singleMember.textContent = input.value
-        const deleteButton = document.createElement('div')
+        const deleteButton = document.createElement('button')
         deleteButton.textContent = 'delete'
         deleteButton.className = 'delete'
-        const editButton = document.createElement('div')
+        const editButton = document.createElement('button')
         editButton.textContent = 'edit'
         editButton.className = 'edit'
         singleMember.appendChild(deleteButton)
@@ -40,10 +40,12 @@ input.addEventListener('keyup', (e)=>{
             let singleMember = document.createElement('p')
             singleMember.className = 'member-single'
             singleMember.textContent = input.value
-            const deleteButton = document.createElement('div')
+            const deleteButton = document.createElement('button')
+            deleteButton.className = 'delete'
             deleteButton.textContent = 'delete'
-            const editButton = document.createElement('div')
+            const editButton = document.createElement('button')
             editButton.textContent = 'edit'
+            editButton.className = 'edit'
             singleMember.appendChild(deleteButton)
             singleMember.appendChild(editButton)
             members.push(input.value)
@@ -84,3 +86,12 @@ random.addEventListener('click', (e)=>{
         randomList.appendChild(shuffledMember)
     })
 })
+
+//Creating Event listener for delete
+let delArray = document.getElementsByClassName('delete')
+for (let i = 0; i < delArray.length; i++) {
+  delArray[i].onclick = function() {
+    let div = this.parentElement
+    div.style.display = "none"
+  }
+}
