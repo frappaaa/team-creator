@@ -10,17 +10,23 @@ document.body.appendChild(randomList)
 let members = []
 
 //Creating Event listener on button to create a single member element everytime we click on it, if the input is valid and filled
-button.addEventListener('click', (e)=>{
-    e.preventDefault()
+button.addEventListener('click', addMember)
+
+//Creating Event listener for the enter key
+input.addEventListener('keypress', (e)=>{
+    if(e.key==='Enter') addMember()
+})
+
+function addMember(){
     if(input.value!=''){
         let singleMember = document.createElement('p')
         singleMember.className = 'member-single'
         singleMember.textContent = input.value
         const deleteButton = document.createElement('button')
         deleteButton.innerHTML = '<img src="https://s.svgbox.net/hero-outline.svg?ic=trash&fill=000">'
-        
+        deleteButton.className = 'delete'
         const editButton = document.createElement('button')
-        editButton.textContent = 'edit'
+        editButton.innerHTML = '<img src="https://s.svgbox.net/hero-outline.svg?ic=pencil-alt&fill=000">'
         editButton.className = 'edit'
         singleMember.appendChild(deleteButton)
         singleMember.appendChild(editButton)
@@ -29,32 +35,8 @@ button.addEventListener('click', (e)=>{
         listMember.appendChild(singleMember)
         input.value = ''
     }
-})
+}
 
-
-//Creating Event listener for the enter key
-input.addEventListener('keyup', (e)=>{
-    e.preventDefault()
-    if(e.key==='Enter'){
-        if(input.value!=''){
-            let singleMember = document.createElement('p')
-            singleMember.className = 'member-single'
-            singleMember.textContent = input.value
-            const deleteButton = document.createElement('button')
-            deleteButton.className = 'delete'
-            deleteButton.textContent = 'delete'
-            const editButton = document.createElement('button')
-            editButton.textContent = 'edit'
-            editButton.className = 'edit'
-            singleMember.appendChild(deleteButton)
-            singleMember.appendChild(editButton)
-            members.push(input.value)
-            console.log(members)
-            listMember.appendChild(singleMember)
-            input.value = ''
-        }
-    }
-})
 
 //Creating event listener for random button to print the values 
 function shuffle(array) {
@@ -86,12 +68,3 @@ random.addEventListener('click', (e)=>{
         randomList.appendChild(shuffledMember)
     })
 })
-
-//Creating Event listener for delete
-let delArray = document.getElementsByClassName('delete')
-for (let i = 0; i < delArray.length; i++) {
-  delArray[i].onclick = function() {
-    let div = this.parentElement
-    div.style.display = "none"
-  }
-}
