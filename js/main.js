@@ -11,7 +11,6 @@ let members = []
 
 //Creating Event listener on button to create a single member element everytime we click on it, if the input is valid and filled
 button.addEventListener('click', addMember)
-
 //Creating Event listener for the enter key
 input.addEventListener('keypress', (e)=>{
     if(e.key==='Enter') addMember()
@@ -40,7 +39,7 @@ function addMember(){
 
 //Creating event listener for random button to print the values 
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
