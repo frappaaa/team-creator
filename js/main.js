@@ -17,8 +17,8 @@ button.addEventListener('click', (e)=>{
         singleMember.className = 'member-single'
         singleMember.textContent = input.value
         const deleteButton = document.createElement('button')
-        deleteButton.textContent = 'delete'
-        deleteButton.className = 'delete'
+        deleteButton.innerHTML = '<img src="https://s.svgbox.net/hero-outline.svg?ic=trash&fill=000">'
+        
         const editButton = document.createElement('button')
         editButton.textContent = 'edit'
         editButton.className = 'edit'
